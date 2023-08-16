@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <script type="application/javascript">
+      async function click_signin(){
+      console.log("click")
+      let name = document.getElementById('name').value;
+      let entitydata = document.getElementById('entitydata').value;
+      console.log("name: ", name)
+      console.log("entitydata: ", entitydata)
+
+      try {
+        const response = await fetch("/api/entity",{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name:name,
+            entitydata:entitydata
+          }),
+        });
+        const result = await response.json();
+        console.log(result);
+        if(result){
+          if(result.api){
+            if(result.api=="PASS"){
+              //document.location.href = "/"
+            }
+          }else{
+            console.log("FAIL")
+          }
+        }
+        //document.location.href = "/"
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  </script>
+  <table>
+    <tbody>
+      <tr>
+        <td colspan="2">
+          <label> Entity </label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label> Name: </label>
+        </td>
+        <td>
+          <input id="name" placeholder="Name"/>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="">
+          <textarea id="entitydata"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" >
+          <input type="submit" style="float: right;" onclick="click_signin();" value="Create">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    
+{% endblock %}

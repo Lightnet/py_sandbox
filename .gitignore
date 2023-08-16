@@ -1,0 +1,12 @@
+.venv
+*.pyd
+*.c
+main.spec
+Pipfile.lock
+dist
+build
+__pycache__
+database.sqlite
+package-lock.json
+node_modules
+

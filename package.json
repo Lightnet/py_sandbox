@@ -1,0 +1,22 @@
+{
+  "name": "py_flask_alchemy",
+  "version": "1.0.0",
+  "description": "* Testing.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@solidjs/router": "^0.8.3",
+    "solid-js": "^1.7.11",
+    "vite": "^4.4.9",
+    "vite-plugin-solid": "^2.7.0"
+  }
+}

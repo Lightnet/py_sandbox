@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+cython = "==3.0.0"
+numpy = "==1.25.1"
+pyinstaller = "==5.13.0"
+ttkthemes = "==3.2.2"
+pandas = "==2.0.3"
+tkinterweb = "==3.19.2"
+pyjwt = "==2.8.0"
+flask = "==2.3.2"
+flask-socketio = "==5.3.5"
+sqlalchemy = "==2.0.20"
+websockets = "==11.0.3"
+imgui = "==2.0.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
