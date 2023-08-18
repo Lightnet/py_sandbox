@@ -41,7 +41,7 @@ export default function SignOut() {
     <div>
       <label> Do you want to Logout?</label><br/>
       <button onClick={btnCancel}> Cancel </button>
-      <button onClick={btnSignOut}> Sign Out </button>
+      <button onClick={btnSignOut}> Submit </button>
     </div>
   )
 }

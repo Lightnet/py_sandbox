@@ -10,6 +10,13 @@
 # npm package:
  * solid-js
  * vite
+
+# npm dev:
+
+```
+npm run build
+```
+Build dist file for python server static custom limited path.
  
 # python packages:
  * Python 3.11.4
