@@ -5,7 +5,7 @@
     async function click_signout(){
       console.log("click")
       try {
-        const response = await fetch("/api/signout",{
+        const response = await fetch("/api/auth/signout",{
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -21,11 +21,11 @@ def mail_send():
   """
 
   try:
-     smtpObj = smtplib.SMTP('localhost',25)
-     smtpObj.sendmail(sender, receivers, message)         
-     print("Successfully sent email")
+    smtpObj = smtplib.SMTP('localhost',25)
+    smtpObj.sendmail(sender, receivers, message)         
+    print("Successfully sent email")
   except smtplib.SMTPException:
-     print("Error: unable to send email")
+    print("Error: unable to send email")
 
 if __name__ == '__main__':
   mail_send()

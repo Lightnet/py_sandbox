@@ -4,7 +4,7 @@
 import asyncio
 
 from aiosmtpd.controller import Controller
-from aiosmtpd.handlers import Sink
+#from aiosmtpd.handlers import Sink
 
 class ExampleHandler:
   async def handle_RCPT(self, server, session, envelope, address, rcpt_options):

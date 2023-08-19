@@ -13,9 +13,13 @@ bp = Blueprint('route', __name__)
 #def send_report(path):
   #return send_from_directory('../dist', path)
 
-#@bp.route("/")
-#def index():
-  #return render_template('index.html')
+@bp.route("/")
+def index():
+  token = request.cookies.get('token')
+  if token:
+    return render_template('home.html')
+  else:
+    return render_template('index.html')
 
 def root_dir():  # pragma: no cover
   return os.path.abspath(os.path.dirname(__file__))
@@ -32,10 +36,10 @@ def get_file(filename):  # pragma: no cover
   except IOError as exc:
     return str(exc)
 
-@bp.route("/")
-def index():
-  content = get_file('../../dist/index.html')
-  return Response(content, mimetype="text/html")
+#@bp.route("/")
+#def index():
+  #content = get_file('../../dist/index.html')
+  #return Response(content, mimetype="text/html")
   #return render_template('index.html')
   
 # https://stackoverflow.com/questions/17295086/python-joining-current-directory-and-parent-directory-with-os-path-join
