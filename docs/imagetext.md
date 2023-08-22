@@ -1,0 +1,1 @@
+https://www.screenshotapi.net/blog/how-do-i-extract-text-from-a-screenshot

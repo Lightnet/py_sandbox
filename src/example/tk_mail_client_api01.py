@@ -1,3 +1,5 @@
+# test call
+
 import tkinter as tk
 from tkinter import scrolledtext
 
@@ -27,38 +29,7 @@ class MainWindow(tk.Tk):
 
     frame_server.columnconfigure(1, weight=1)
     #========================
-    # FROM
-    frame_from = tk.Frame(self)# FRAME
-    frame_from.grid(row=1, column=0, sticky=tk.W+tk.E, pady=4, padx=4)
 
-    label_from = tk.Label(frame_from, text="From:")
-    label_from.grid(row=0,column=0,sticky=tk.W+tk.E)
-    input_from = tk.Entry(frame_from)
-    input_from.grid(row=0,column=1,sticky=tk.W+tk.E)
-
-    frame_from.columnconfigure(1, weight=1)
-    #========================
-    # TO
-    frame_to = tk.Frame(self)# FRAME
-    frame_to.grid(row=2, column=0, sticky=tk.W+tk.E, pady=4, padx=4)
-
-    label_to = tk.Label(frame_to, text="To:")
-    label_to.grid(row=0,column=0,sticky=tk.W+tk.E)
-
-    input_to = tk.Entry(frame_to)
-    input_to.grid(row=0,column=1,sticky=tk.W+tk.E)
-    frame_to.columnconfigure(1, weight=1)
-    #========================
-    # SUBJECT
-    frame_subject = tk.Frame(self)# FRAME
-    frame_subject.grid(row=3, column=0, sticky=tk.W+tk.E, pady=4, padx=4)
-
-    label_subject = tk.Label(frame_subject, text="Subject:")
-    label_subject.grid(row=0,column=0)
-
-    input_subject = tk.Entry(frame_subject)
-    input_subject.grid(row=0,column=1,sticky=tk.W+tk.E)
-    frame_subject.columnconfigure(1, weight=1)
     #========================
     # CONTENT
     frame_content = tk.LabelFrame(self, text="Message")# FRAME
@@ -72,11 +43,14 @@ class MainWindow(tk.Tk):
     frame_actions = tk.Frame(self)# FRAME
     frame_actions.grid(row=5, column=0, sticky=tk.E+tk.W, pady=4, padx=4)
     #frame_actions.configure(background='black')#for debug layout
-    button_send = tk.Button(frame_actions, text="Send")
-    button_send.grid(row=0, column=1)
+    button_ping = tk.Button(frame_actions, text="Ping")
+    button_ping.grid(row=0, column=1)
 
     button_draft = tk.Button(frame_actions, text="Draft")
     button_draft.grid(row=0, column=0)
+
+    button_connect = tk.Button(frame_actions, text="Connect")
+    button_connect.grid(row=0, column=2)
 
 
     txtbox = scrolledtext.ScrolledText(frame_content, width=40, height=10)
@@ -86,10 +60,6 @@ class MainWindow(tk.Tk):
     self.columnconfigure(0, weight=1) # input server
     # note repeat columnconfigure seem to break layout on right empty space when resize
     self.rowconfigure(4, weight=1) # content
-    #self.columnconfigure(4, weight=1) # 
-
-    #self.rowconfigure(5, weight=1) # Action
-    #self.columnconfigure(4, weight=1) # message content
 
     self.grid_columnconfigure(0, weight=1)
 
