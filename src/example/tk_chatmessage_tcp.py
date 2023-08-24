@@ -124,7 +124,6 @@ class MainWindow(tk.Tk):
   def init_server(self):
     print("init server test")
     
-
   def init_client(self):
     print("init client test")
   # https://copyassignment.com/gui-chat-application-in-python-tkinter/
@@ -160,7 +159,6 @@ class MainWindow(tk.Tk):
       so.close()
   def input_chat(self,event):
     print("Hello test")
-
 
 if __name__ == '__main__':
   app = MainWindow()
