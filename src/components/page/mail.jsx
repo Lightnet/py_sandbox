@@ -1,14 +1,16 @@
 /*
-  Project Name: solid-js-sandbox
+  Project Name: 
   License: MIT
   Created by: Lightnet
 */
 
 import { Link } from "@solidjs/router";
 
-export default function About() {
+//import SignIn from "../auth/SignIn.jsx";
+
+export default function PageMail() {
   return (<>
     <Link href="/"> Home </Link>
-    <label>Hello About!</label>
+    <label>Mail</label>
   </>)
 }

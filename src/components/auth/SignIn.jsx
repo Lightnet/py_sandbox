@@ -76,6 +76,7 @@ export default function SignIn() {
             <input value={alias()} onInput={(e)=>setAlias(e.target.value)}/>
             </td>
           </tr>
+          {/*
           <tr>
             <td>
             <label> E-Mail: </label>
@@ -84,6 +85,7 @@ export default function SignIn() {
             <input value={email()} onInput={(e)=>setEmail(e.target.value)}/>
             </td>
           </tr>
+          */}
           <tr>
             <td>
             <label> Passphrase: </label>

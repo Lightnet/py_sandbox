@@ -4,17 +4,19 @@
   Created by: Lightnet
 */
 
-import { useAuth } from '../components/auth/auth.jsx';
-import AuthAccess from '../components/auth/AuthAccess.jsx';
+import { useAuth } from '../auth/AuthProvider.jsx';
+import AuthAccess from '../auth/AuthAccess.jsx';
+import { Link } from '@solidjs/router';
 
 export default function PageAccount() {
 
   const [,{isLogin}] = useAuth();
-
+  //<Account/>
   return (<AuthAccess>
     <div>
+      <Link href="/"> Home </Link>
       <label>Account</label>
     </div>
-    <Account/>
+    
   </AuthAccess>)
 }

@@ -10,6 +10,15 @@ const SignIn = lazy(() => import('./page/login.jsx'))
 const SignUp = lazy(() => import('./page/register.jsx'))
 const SignOut = lazy(() => import('./page/logout.jsx'))
 
+const Account = lazy(() => import('./page/account.jsx'))
+const Admin = lazy(() => import('./page/admin.jsx'))
+const Settings = lazy(() => import('./page/settings.jsx'))
+
+const Entity = lazy(() => import('./page/entity.jsx'))
+
+const Message = lazy(() => import('./page/message.jsx'))
+const EMail = lazy(() => import('./page/mail.jsx'))
+
 function App() {
   const [count, setCount] = createSignal(0)
 
@@ -21,6 +30,14 @@ function App() {
         <Route path="/signin" component={SignIn}/>
         <Route path="/signup" component={SignUp}/>
         <Route path="/signout" component={SignOut}/>
+
+        <Route path="/account" component={Account}/>
+        <Route path="/message" component={Message}/>
+        <Route path="/settings" component={Settings}/>
+        <Route path="/admin" component={Admin}/>
+
+        <Route path="/entity" component={Entity}/>
+        <Route path="/mail" component={EMail}/>
       </Routes>
     </Router>
   </AuthProvider>
