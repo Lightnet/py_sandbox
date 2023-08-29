@@ -1,5 +1,5 @@
 /*
-  Project Name: solid-js-sandbox
+  Project Name: py_sandbox
   License: MIT
   Created by: Lightnet
 */

@@ -1,3 +1,9 @@
+/*
+  Project Name: py_sandbox
+  License: MIT
+  Created by: Lightnet
+*/
+
 import { createSignal, lazy } from 'solid-js'
 import { Router, Routes, Route } from '@solidjs/router';
 import AuthProvider from './auth/AuthProvider.jsx';

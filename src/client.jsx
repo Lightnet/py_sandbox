@@ -1,3 +1,9 @@
+/*
+  Project Name: py_sandbox
+  License: MIT
+  Created by: Lightnet
+*/
+
 /* @refresh reload */
 import { render } from 'solid-js/web'
 

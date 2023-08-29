@@ -62,8 +62,8 @@ class gui_register(ttk.Frame):
     frame_buttons = ttk.Frame()
     frame_buttons.grid(row=7,column=0,columnspan=2)
 
-    button_login = ttk.Button(frame_buttons,text='Login',bootstyle=(INFO, OUTLINE))
-    button_login.grid(row=0,column=0)
+    #button_login = ttk.Button(frame_buttons,text='Login',bootstyle=(INFO, OUTLINE))
+    #button_login.grid(row=0,column=0)
 
     button_create = ttk.Button(frame_buttons,text='Register',bootstyle=SUCCESS)
     button_create.grid(row=0,column=1)
