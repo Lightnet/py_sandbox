@@ -20,6 +20,7 @@ aiosmtpd = "*"
 ttkbootstrap = "*"
 selectolax = "*"
 httpx = "*"
+psutil = "*"
 
 [dev-packages]
 
