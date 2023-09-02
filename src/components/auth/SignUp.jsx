@@ -42,8 +42,10 @@ export default function SignUp() {
     <table>
       <thead>
             <tr>
-              <td colSpan="">
-                <label>Sign In</label>
+              <td colSpan="2" style="background:gray;">
+                <center>
+                  <label>Sign Up</label>
+                </center>
               </td>
             </tr>
           </thead>
@@ -74,10 +76,12 @@ export default function SignUp() {
           </tr>
           <tr>
             <td colSpan="2">
-              <span style="float:right;">
-                <button onClick={btnSignUp}> Register </button>
-                <button onClick={btnCancel}> Cancel </button>
-              </span>
+              <button style="width:100%;" onClick={btnSignUp}> Register </button>
+            </td>
+          </tr>
+          <tr>
+            <td colSpan="2">
+              <button style="width:100%;" onClick={btnCancel}> Cancel </button>
             </td>
           </tr>
         </tbody>

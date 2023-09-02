@@ -20,6 +20,7 @@ export default function PageHome() {
         <Link href='/entity'>Entity</Link><span> | </span>
         <Link href='/message'>Message</Link><span> | </span>
         <Link href='/mail'>Mail</Link><span> | </span>
+        <Link href='/task'>Task</Link><span> | </span>
         <Link href='/settings'>Settings</Link><span> | </span>
         <Link href='/admin'>Admin</Link><span> | </span>
         <Link href='/signout'>Logout</Link><span> | </span>

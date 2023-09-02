@@ -15,12 +15,14 @@ const Home = lazy(() => import('./page/index.jsx'))
 const SignIn = lazy(() => import('./page/login.jsx'))
 const SignUp = lazy(() => import('./page/register.jsx'))
 const SignOut = lazy(() => import('./page/logout.jsx'))
+const Recovery = lazy(() => import('./page/recovery.jsx'))
 
 const Account = lazy(() => import('./page/account.jsx'))
 const Admin = lazy(() => import('./page/admin.jsx'))
 const Settings = lazy(() => import('./page/settings.jsx'))
 
 const Entity = lazy(() => import('./page/entity.jsx'))
+const Task = lazy(() => import('./page/task.jsx'))
 
 const Message = lazy(() => import('./page/message.jsx'))
 const EMail = lazy(() => import('./page/mail.jsx'))
@@ -36,6 +38,7 @@ function App() {
         <Route path="/signin" component={SignIn}/>
         <Route path="/signup" component={SignUp}/>
         <Route path="/signout" component={SignOut}/>
+        <Route path="/recovery" component={Recovery}/>
 
         <Route path="/account" component={Account}/>
         <Route path="/message" component={Message}/>
@@ -44,6 +47,7 @@ function App() {
 
         <Route path="/entity" component={Entity}/>
         <Route path="/mail" component={EMail}/>
+        <Route path="/task" component={Task}/>
       </Routes>
     </Router>
   </AuthProvider>

@@ -21,6 +21,7 @@ ttkbootstrap = "*"
 selectolax = "*"
 httpx = "*"
 psutil = "*"
+cryptography = "*"
 
 [dev-packages]
 

@@ -7,6 +7,9 @@
 # Status:
  * Testing.
 
+# Information:
+  This is just prototype. To have test scripts and tools. As well http, tcp and websocket server and client test.
+
 # npm package:
  * solid-js
  * vite
@@ -23,11 +26,6 @@ Build dist file for python server static custom limited path.
  * NumPy 1.6.2
  * pyinstaller (exe build)
  * CPython (lib build)
-
-# Information:
-  This is just prototype.
-
-  To build the web server test build.
 
 # Design:
   * Back up page auth for temp build
@@ -77,7 +75,7 @@ Save what packages for needed to run application.
 ```
 pipenv shell
 ```
-  Run sandbox mode.
+  Run sandbox env mode.
 ```
 python src/main.py
 ```

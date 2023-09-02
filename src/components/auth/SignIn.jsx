@@ -62,8 +62,11 @@ export default function SignIn() {
     <table>
       <thead>
             <tr class="wPanel_header">
-              <td colSpan="2" >
-                <label>Sign In</label>
+              <td colSpan="2" style="background:gray;">
+                <center>
+                  <label>Sign In</label>
+                </center>
+                
               </td>
             </tr>
           </thead>
@@ -101,8 +104,12 @@ export default function SignIn() {
           </tr>
           <tr>
           <td colSpan="2">
-              <button class="wbtn " onClick={btnSignUp}> Sign Up </button>
-              <button class="wbtn " onClick={btnSignUp}> Recovery </button>
+              <button class="wbtn " style="width:100%" onClick={btnSignUp}> Sign Up </button>
+            </td>
+          </tr>
+          <tr>
+          <td colSpan="2">
+              <button class="wbtn " style="width:100%" onClick={btnRecovery}> Recovery </button>
             </td>
           </tr>
         </tbody>
