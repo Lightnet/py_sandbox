@@ -7,6 +7,7 @@ from flask import (
 #from sqlalchemy import JSON
 from sqlalchemy import exc
 from sqlalchemy import select
+from sqlalchemy import update
 from sqlalchemy.orm import Session
 from .models import Task, engine
 
@@ -52,29 +53,45 @@ def task_post():
         session.add_all([newTask])
         try:
           session.commit()
+          return jsonify({"api":"CREATED","id":newTask.id})
         except exc.SQLAlchemyError as e:
           session.rollback()
         
 
   return jsonify({"api":"ERROR"})
 
-@bp.route("/task", methods=['PUT'])
-def task_put():
-  data = request.json()
+@bp.route("/api/task/<id>", methods=['PUT'])
+def task_put(id):
+  data = request.get_json()
+  print("update data: ",data)
   if data:
-
-    pass
+    if data['id']:
+      with Session(engine) as session:
+        print(data['content'])
+        print("session update")
+        #session.execute(update(Task).where(Task.id == id).values(Task.content==data['content'])).scalar()# if nothing return None
+        session.execute(update(Task).where(Task.id == id).values(content = data['content']))
+        session.commit()
+        return jsonify({"api":"UPDATE"})
+    
   
   return jsonify({"api":"ERROR"})
 
-@bp.route("/task/<id>", methods=['DELETE'])
+@bp.route("/api/task/<id>", methods=['DELETE'])
 def task_delete(id):
   print("ID: ", id)
-
-  #guide = Guide.query.get(id)
-  #db.session.delete(guide)
-  #db.session.commit()
-  
+  if id:
+    with Session(engine) as session:
+      print("session delete")
+      result = session.execute(select(Task).where(Task.id == id)).scalar()# if nothing return None
+      print("result: ", result)
+      if result:
+        try:
+          session.delete(result)
+          session.commit()
+          return jsonify({"api":"DELETE"})
+        except:
+          session.rollback()
   return jsonify({"api":"ERROR"})
 
 

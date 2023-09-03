@@ -12,9 +12,9 @@ import { useAuth } from '../auth/AuthProvider.jsx';
 export default function PageHome() {
 
   const {user} = useAuth();
-  
+  //<Access>
   return (<>
-    <Access>
+    
       <div>
         <Link href='/account'>Account</Link><span> | </span>
         <Link href='/entity'>Entity</Link><span> | </span>
@@ -28,6 +28,7 @@ export default function PageHome() {
       <div>
         <label>Home, {user()}!</label>
       </div>
-    </Access>
+    
   </>)
+  //</Access>
 }
