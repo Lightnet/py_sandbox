@@ -18,19 +18,14 @@ def page_task():
   #list
   try:
     with Session(engine) as session:
-      #results = session.execute(select(Task).order_by(Task.id)).scalars()
-      #results = session.execute(select(Task).order_by(Task.id)).all()
       results = session.scalars(select(Task).order_by(Task.id)).all()
-      print("results: ",results)
-      #print("results: ",results[0][0])
-      #print("results: ",jsonify(results))
+      #print("results: ",results)
       mytasks = []
       for result in results:
-        print(result)
-        print(result.id)
-        #print("results: ",jsonify(result))
+        #print(result)
+        #print(result.id)
         mytasks.append(result.to_json())
-      print(mytasks)
+      #print(mytasks)
       return jsonify(mytasks)
   except exc.SQLAlchemyError as e:
     print("ERROR: ", e)

@@ -8,9 +8,9 @@ import {
   createContext
 , createEffect
 , createSignal
-, useContext
+, onMount, useContext
 } from 'solid-js';
-import { jwtUser } from '../../lib/clientapi.js';
+//import { jwtUser } from '../../lib/clientapi.js';
 
 export const AuthContext = createContext();
 
@@ -36,8 +36,25 @@ export default function AuthProvider(props){
     clearSession() {setSession(null);}
   };
 
+  onMount(()=>{
+    checkUser()
+  })
+
+  async function checkUser(){
+    const response = await fetch("/api/auth/user")
+    let data = await response.json()
+    if(data){
+      if(data.api){
+        console.log("data.api: ", data.api)
+        if(data.api=='USER'){
+          console.log("FOUND USER")
+          setToken(data.token)
+        }
+      }
+    }
+  }
+
   //watch data
-  
   createEffect(() => {
     //console.log(token())
     let tokenData = token();

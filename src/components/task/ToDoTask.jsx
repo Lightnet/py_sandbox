@@ -103,6 +103,7 @@ export default function ToDoTask() {
             return item;
           }))
           setEditId('')
+          setEditContent('')
         }
       }
     }catch(e){

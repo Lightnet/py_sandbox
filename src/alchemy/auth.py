@@ -101,6 +101,27 @@ def auth_signout():
     return resp
   
   return jsonify({"api":"ERROR"})
+#================================================
+# USER
+#================================================
+# for render get if already login
+@bp.route("/api/auth/user")
+def auth_user():
+  token = request.cookies.get('token')
+  if token: #check if token exist
+    userData = jwt.decode(token, "secret", algorithms=["HS256"])
+    if userData:
+      with Session(engine) as session:
+        result = session.execute(select(User).where(User.alias == userData['alias'])).scalar()# if nothing return None
+        if result:
+          print("USER DATA:", result)
+          resp = make_response(jsonify({"api":"USER","token":{"alias":result.alias,"role":"member"}}))
+          #set cookie
+          #resp.set_cookie('token', '', expires=0)#clear token data
+          return resp
+  else:
+    return jsonify({"api":"NOTLOGIN"})  
+  return jsonify({"api":"ERROR"})
 
 #================================================
 # RECOVERY
