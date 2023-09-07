@@ -7,6 +7,11 @@ from ttkbootstrap.constants import *
 #from tkinter import messagebox
 from ttkbootstrap.dialogs.dialogs import Messagebox
 
+from alchemy.models import engine, User
+from sqlalchemy import select
+from sqlalchemy.orm import Session
+from sqlalchemy import exc
+
 class gui_register(ttk.Frame):
   def __init__(self,master):
     self.master = master
@@ -32,31 +37,35 @@ class gui_register(ttk.Frame):
 
     input_alias = ttk.Entry()
     input_alias.grid(row=2,column=1)
+    self.input_alias = input_alias
     #PASS
     label_pass = ttk.Label(text="Pass:")
     label_pass.grid(row=3,column=0)
 
     input_pass = ttk.Entry(show="*")
     input_pass.grid(row=3,column=1)
+    self.input_pass = input_pass
 
     label_pass02 = ttk.Label(text="RE-Pass:")
     label_pass02.grid(row=4,column=0)
 
     input_pass02 = ttk.Entry(show="*")
     input_pass02.grid(row=4,column=1)
+    self.input_pass02 = input_pass02
     #EMAIL
     label_email = ttk.Label(text="Email:")
     label_email.grid(row=5,column=0)
 
     input_email = ttk.Entry()
     input_email.grid(row=5,column=1)
+    self.input_email = input_email
 
     label_email02 = ttk.Label(text="RE-Email:")
     label_email02.grid(row=6,column=0)
 
     input_email02 = ttk.Entry()
     input_email02.grid(row=6,column=1)
-
+    self.input_email02 = input_email02
 
     #BUTTONS
     frame_buttons = ttk.Frame()
@@ -74,7 +83,33 @@ class gui_register(ttk.Frame):
 
   def web_register(self):
     #messagebox.showinfo("showinfo", "Information")
-    Messagebox.ok("Hello World!")
+    #Messagebox.ok("Hello World!")
+    user_name = self.input_alias.get()
+    passphrase = self.input_pass.get()
+    print("user_name: ", user_name)
+    print("passphrase: ", passphrase)
+
+    try:
+      with Session(engine) as session:
+        result = session.execute(select(User).where(User.alias == user_name)).scalar()# if nothing return None
+      print("RESULT: ", result)
+      if result:
+        print("FOUND")
+        print("USER:", result)
+        print("USER:", result.id)
+        Messagebox.ok(f'User Found! {result.alias}!')
+      else:
+        newUser = User(
+          alias = user_name,
+          passphrase = passphrase
+        )
+        session.add_all([newUser])
+        session.commit()
+        print("ID: ", newUser.id)
+        Messagebox.ok(f'Created Alias:[ {user_name} ]!')
+
+    except exc.SQLAlchemyError as e:
+      print("USER SIGN IN ERROR!", e)
 
 if __name__ == '__main__':
   root = Tk()

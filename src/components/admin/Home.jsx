@@ -6,13 +6,13 @@
 
 import { createSignal } from 'solid-js'
 
-export default function UILogs() {
+export default function AdminHome() {
   
-  const [count, setCount] = createSignal(0)
+  const [members, setMembers] = createSignal([])
 
   return (
     <>
-      <label>Logs </label>
+      <label>AdminHome</label>
     </>
   )
 }
